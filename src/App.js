@@ -7,7 +7,7 @@ import Navbar from './Components/Navbar';
 function App() {
   return (
   <>
-     {/* <Navbar1/> */} 
+     {/* <Navbar/> */} 
     <Navbar title="TextUtils" AboutText='About us' />
 
     <div className="container my-3">
