@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 export default function Textform(props) {
    
-    const [text , setText] = useState("write here");
+    const [text , setText] = useState("Enter text here");
 
     const handleupClick = ()=> {
     //   console.log("got clicked" + text);
@@ -23,10 +23,23 @@ export default function Textform(props) {
             setText(newtext);
           }
 
-    const handleonChange = (event)=> {
-    //    console.log("on change");
-       setText(event.target.value);
-    }
+      const handleonChange = (event)=> {
+      //    console.log("on change");
+        setText(event.target.value);
+      }
+
+     const handleCopy = ()=>{
+       var text = document.getElementById("mybox")
+      text.select();
+      navigator.clipboard.writeText(text.value);
+     }
+     
+     const handleSpace = () =>{
+       let newtext = text.split(/[ ]+/);
+       setText(newtext.join(" "));
+     }
+
+
 
     return (
         <>
@@ -39,6 +52,9 @@ export default function Textform(props) {
              <button className="btn btn-primary mx-2" onClick={handleloClick}>Convert To Lowercase</button>
              <button className="btn btn-primary mx-2" onClick={handlereverseClick}>Reverse String</button>
              <button className="btn btn-primary mx-2" onClick={handleclearClick}>Clear</button>
+             <button className="btn btn-primary mx-2" onClick={handleCopy}>Copy</button>
+             <button className="btn btn-primary mx-2" onClick={handleSpace}>Remove Spaces</button>
+
          </div>
 
          <div className="container my-3">
