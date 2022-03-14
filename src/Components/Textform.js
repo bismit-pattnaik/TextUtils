@@ -8,19 +8,23 @@ export default function Textform(props) {
     //   console.log("got clicked" + text);
       var newtext =text.toUpperCase();
       setText(newtext);
+      props.showAlert("Converted to upper case","success")
     }
     
     const handleloClick = ()=> {
           var newtext =text.toLowerCase();
           setText(newtext);
+          props.showAlert("Converted to Lower case","success")
         }
      const handlereverseClick = ()=> {
             var newtext =text.split(" ").reverse().join(" ");
             setText(newtext);
+            props.showAlert("String is reversed","success")
           }
      const handleclearClick = ()=> {
             var newtext ="";
             setText(newtext);
+            props.showAlert("message is cleared","success")
           }
 
       const handleonChange = (event)=> {
@@ -32,11 +36,13 @@ export default function Textform(props) {
        var text = document.getElementById("mybox")
       text.select();
       navigator.clipboard.writeText(text.value);
+      props.showAlert("Text copied to Clipboard","success")
      }
      
      const handleSpace = () =>{
        let newtext = text.split(/[ ]+/);
        setText(newtext.join(" "));
+       props.showAlert("Cleared Extra spaces","success")
      }
 
 
